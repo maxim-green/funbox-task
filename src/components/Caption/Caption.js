@@ -3,9 +3,9 @@ import './Caption.scss'
 
 const Caption = ({children}) => {
   return (
-    <div className="caption">
+    <h1 className="caption">
       {children}
-    </div>
+    </h1>
   );
 };
 
