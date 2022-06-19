@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.587898a6.css",
-    "main.js": "/static/js/main.d91b134d.js",
-    "static/media/TrebuchetMS.ttf": "/static/media/TrebuchetMS.d69a72044b0a638fd1a5.ttf",
-    "static/media/TrebuchetMS-Bold.ttf": "/static/media/TrebuchetMS-Bold.b69cd0cd0562310312d7.ttf",
-    "static/media/Exo2-Thin.ttf": "/static/media/Exo2-Thin.31388261393c74de8319.ttf",
-    "static/media/cat.png": "/static/media/cat.83c44837451a8bdc6a4f.png",
-    "static/media/pattern.png": "/static/media/pattern.7858f3d0f9b100e9018a.png",
-    "index.html": "/index.html",
-    "main.587898a6.css.map": "/static/css/main.587898a6.css.map",
-    "main.d91b134d.js.map": "/static/js/main.d91b134d.js.map"
+    "main.css": "/funbox-task/static/css/main.f4396ca1.css",
+    "main.js": "/funbox-task/static/js/main.d91b134d.js",
+    "static/media/TrebuchetMS.ttf": "/funbox-task/static/media/TrebuchetMS.d69a72044b0a638fd1a5.ttf",
+    "static/media/TrebuchetMS-Bold.ttf": "/funbox-task/static/media/TrebuchetMS-Bold.b69cd0cd0562310312d7.ttf",
+    "static/media/Exo2-Thin.ttf": "/funbox-task/static/media/Exo2-Thin.31388261393c74de8319.ttf",
+    "static/media/cat.png": "/funbox-task/static/media/cat.83c44837451a8bdc6a4f.png",
+    "static/media/pattern.png": "/funbox-task/static/media/pattern.7858f3d0f9b100e9018a.png",
+    "index.html": "/funbox-task/index.html",
+    "main.f4396ca1.css.map": "/funbox-task/static/css/main.f4396ca1.css.map",
+    "main.d91b134d.js.map": "/funbox-task/static/js/main.d91b134d.js.map"
   },
   "entrypoints": [
-    "static/css/main.587898a6.css",
+    "static/css/main.f4396ca1.css",
     "static/js/main.d91b134d.js"
   ]
 }
