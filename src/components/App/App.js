@@ -63,7 +63,7 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <main className="app">
       <Container>
         <Caption>Ты сегодня покормил кота?</Caption>
         <Cards>
@@ -83,7 +83,7 @@ function App() {
           />)}
         </Cards>
       </Container>
-    </div>
+    </main>
   );
 }
 
