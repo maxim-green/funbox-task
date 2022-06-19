@@ -1,23 +1,27 @@
 import React from 'react';
 import './Card.scss';
+import {formatDecimal} from '../../../helpers/formatDecimal';
 
 const Card = ({
-                children,
+                id,
                 description,
                 title,
                 subtitle,
                 features,
-                mass,
-                ctaLink,
+                weight,
                 selected,
                 selectedText,
                 disabled,
                 disabledText,
+                onClick
               }) => {
+  const handleClick = () => {
+    onClick(id);
+  };
   return (
-    <li className="card">
-      <div className="card__inner">
-        <div className="card__desctiption">{description}</div>
+    <li className={`card ${selected ? 'card--selected' : ''} ${disabled ? 'card--disabled' : ''}`}>
+      <div role="button" className="card__inner" onClick={handleClick}>
+        <div className="card__description">{description}</div>
         <h2 className="card__title">{title}</h2>
         <h2 className="card__subtitle">{subtitle}</h2>
         <ul className="card__features">
@@ -27,14 +31,14 @@ const Card = ({
 
         </ul>
         <div className="card__mass">
-          <div className="card__mass-number">{mass}</div>
+          <div className="card__mass-number">{formatDecimal(weight, ',')}</div>
           <div className="card__mass-unit">кг</div>
         </div>
       </div>
       {!disabled && !selected && <div className="card__caption">
-        Чего сидишь? Порадуй котэ, <a href={ctaLink}>купи.</a>
+        Чего сидишь? Порадуй котэ, <button className={'link'} onClick={handleClick}>купи.</button>
       </div>}
-      {selected && <div className="card__caption">
+      {!disabled && selected && <div className="card__caption">
         {selectedText}
       </div>}
       {disabled && <div className="card__caption">
@@ -43,12 +47,6 @@ const Card = ({
     </li>
   );
 };
-
-Card.Caption = ({children}) => <div
-  className="card__caption card__caption--default"
->
-  {children}
-</div>;
 
 
 export default Card;

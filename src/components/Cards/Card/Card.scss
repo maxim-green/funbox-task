@@ -1,46 +1,94 @@
-@import '../../../variables';
+@import '../../../styles/variables';
+@import '../../../styles/functions';
+$card-width: 320px;
+$card-height: 480px;
+$card-border-width: 4px;
+$card-transition: .2s;
 
 .card {
-
-  & + & {
-    margin-left: 80px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: 1024px) {
+    width: 50%;
   }
+  @media (max-width: 680px) {
+    width: 100%;
+  }
+
   &__inner {
     position: relative;
-    width: 320px;
-    height: 480px;
+    width: $card-width;
+    height: $card-height;
     padding: 20px 50px;
-    background-image: url('../../../assets/cat.png');
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-color: $card-background-color;
-    border: 4px solid #1698D9;
+    background: cut-corner(40px, $color-blue);
     border-radius: 12px;
+    z-index: 0;
+    cursor: pointer;
+    & > * {
+      position: relative;
+      z-index: 3;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      display: none;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: $card-width - $card-border-width * 2;
+      height: $card-height - $card-border-width * 2;
+      z-index: 2;
+      border-radius: 12px - $card-border-width;
+      background: no-repeat bottom
+      cut-corner(calc(40px - #{$card-border-width}/ 4), rgba($color-grey-light, 0.5));
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: $card-width - $card-border-width * 2;
+      height: $card-height - $card-border-width * 2;
+      z-index: 2;
+      border-radius: 12px - $card-border-width;
+      background: no-repeat bottom url('../../../assets/images/cat.png'),
+      cut-corner(calc(40px - #{$card-border-width}/ 4), $color-grey-light);
+    }
   }
-  &__desctiption {
+
+  &__description {
     font-size: 16px;
-    color: $card-text-color;
+    color: $color-grey-dark;
   }
+
   &__title {
     font-weight: 700;
     font-size: 48px;
-    color: $card-title-color;
+    color: $color-black;
   }
+
   &__subtitle {
     font-weight: 700;
     font-size: 24px;
-    color: $card-title-color;
+    color: $color-black;
   }
+
   &__features {
     margin-top: 15px;
   }
+
   &__features-item {
-    color: $card-text-color;
+    color: $color-grey-dark;
     font-size: 14px;
+
     span {
       font-weight: bold;
     }
   }
+
   &__mass {
     position: absolute;
     bottom: 16px;
@@ -51,25 +99,62 @@
     justify-content: center;
     width: 80px;
     height: 80px;
-    background-color: $card-blue-color;
+    background-color: $color-blue;
     border-radius: 50%;
     color: #FFFFFF;
+
     &-number {
       font-size: 42px;
       line-height: 40px;
     }
+
     &-unit {
       font-size: 21px;
       line-height: 18px;
     }
   }
+
   &__caption {
     text-align: center;
     margin-top: 14px;
     font-size: 13px;
+    max-width: $card-width;
+    min-height: 30px;
+  }
+}
 
-    a {
+.card--selected {
+  .card__inner {
+    background: cut-corner(40px, $color-pink);
+  }
+  .card__mass {
+    background-color: $color-pink;
+  }
+}
 
+.card--disabled {
+  .card {
+    &__inner {
+      cursor: auto;
+      background: linear-gradient(135deg, transparent 40px, $color-grey-mid 0);
+      &::after {
+        display: block;
+      }
+      &::before {
+        background: no-repeat bottom rgba($color-grey-light, 0.5),
+        url('../../../assets/images/cat.png'),
+        cut-corner(calc(40px - #{$card-border-width}/ 4), $color-grey-light);
+      }
+    }
+    &__title, &__description, &__subtitle, &__features-item {
+      color: $color-grey-mid;
+    }
+    &__mass {
+      background-color: $color-grey-mid;
+    }
+    &__caption {
+      color: $color-yellow;
     }
   }
+
 }

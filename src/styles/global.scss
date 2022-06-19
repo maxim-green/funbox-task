@@ -1,16 +1,16 @@
 @import '~normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100&family=Ubuntu:wght@400;700&display=swap');
-@import 'variables.scss';
+@import 'fonts';
+@import 'variables';
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Trebuchet MS', sans-serif;
+  font-family: 'TrebuchetMS', sans-serif;
   font-style: normal;
   font-weight: 400;
-  color: $main-text-color;
+  color: $color-white;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -24,12 +24,17 @@ ul {
   padding: 0;
 }
 
-a {
+a, .link {
+  margin: 0;
+  padding: 0;
+  display: inline;
   position: relative;
-  color: $card-blue-color;
+  color: $color-blue;
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
+  background: none;
+  border: none;
   &::before {
     content: '';
     position: absolute;

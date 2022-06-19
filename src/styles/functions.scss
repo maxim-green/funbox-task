@@ -1,0 +1,5 @@
+@function cut-corner($amount, $background) {
+  @return linear-gradient(135deg, transparent $amount, $background 0);
+}
+
+// linear-gradient(135deg, transparent calc(40px - #{$card-border-width}/ 4)
